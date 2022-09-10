@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <script src="https://kit.fontawesome.com/8852a5d862.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Intro section with dropdown navigation</title>
+</head>
+<body>
+  <div class="container-fluid">
+    <nav class="nav-container" >
+      <div class="logo"><img src="./images/logo.svg" alt=""></div>
+      <div class="nav_el" id="navbar">
+        <i class="fa fa-close" id="close-btn"></i>
+        <div class="nav_el1">
+          <div class="dropdown btn-container">
+              <button class="dropbtn" id="feature">Features<i class="fa fa-caret-up caret" id="caret1"></i></button>
+              <div class="dropdown-content" id="features">
+                <a href="#"> <i class="fa fa-list"></i>Todo List</a>
+                <a href="#"><i class="fa fa-calendar"></i>Calender</a>
+                <a href="#"><i class="fa fa-bell"></i>Reminders</a>
+                <a href="#"><i class="fa fa-clock"></i>Planning</a>
+              </div>
+          </div>
+          <div class="dropdown btn-container">
+            <button class="dropbtn" id="comp">Company<i class="fa fa-caret-up caret" id="caret2"></i></button>
+            <div class="dropdown-content company" id="company">
+              <a href="#"><i class="fa fa-history"></i>History</a>
+              <a href="#"><i class="fa fa-user"></i>Our Team</a>
+              <a href="#"><i class="fa fa-blog"></i>Blog</a>
+            </div>
+          </div>
+          <div class="btn-container">
+            <button>Careers</button>
+          </div>
+          <div class="btn-container">
+            <button>About</button>
+          </div>
+        </div>
+        <div class="nav_el2">
+          <div class="btn-container">
+              <button>Login</button>    
+          </div>
+          <div class="btn-container">
+            <button class="register">Register</button>
+          </div>
+        </div>
+      </div>
+      <div class="burger" ><i class="fa fa-bars" id="open-nav"></i></div>
+    </nav>
+    <main class="main">
+      <section class="section1">
+        <div class="info">
+        <h1>Make remote work</h1>
+        <p>Get your team in sync, no matter your location. Streamline processes, create team rituals. and watch productivity soar.</p>
+        <button id="learn_more" >Learn more</button>
+      </div>
+        <div role="figure" class="figure">
+          <div> <img src="./images/client-audiophile.svg" alt=""></div>
+          <div> <img src="./images/client-databiz.svg" alt=""></div>
+          <div> <img src="./images/client-maker.svg" alt=""></div>
+          <div> <img src="./images/client-meet.svg" alt=""></div>
+        </div>
+      </section>
+      <section class="section2">
+        <div class="desktop-image"><img src="./images/image-hero-desktop.png" alt=""></div>
+      </section>
+    </main>
+  </div>
+  
+</body>
+<script>
+     var content = document.querySelectorAll('.dropdown-content');
+     var c = document.querySelectorAll('.caret');
+     var dropdown = document.querySelectorAll('.dropbtn');
+     var nav = document.querySelector('.nav_el');
+     var burger = document.querySelector('.burger');
+    var close = document.querySelector("#close-btn");
+
+    
+     dropdown.forEach(a=>{
+        a.addEventListener("click",function(){
+          dropdown.forEach(a=>{
+             a.parentElement.classList.remove("visible");
+            })
+          a.parentElement.classList.toggle("visible");
+        })
+     })
+
+     burger.addEventListener("click", function(){
+        nav.classList.add("nav-open");
+     });
+
+    
+
+    close.addEventListener("click",function(){
+      nav.classList.remove("nav-open");
+    })
+
+   
+
+    // function showDropdown(n, id){
+      
+    
+    //   content.forEach(a=>{
+    //    a.style.visibility = "hidden";
+    //    document.getElementById(id).style.visibility ="visible";
+      
+    //    c.forEach(b=>{
+    //     b.style.transform ="rotate(180deg)";
+    //     document.getElementById(n).style.transform = "rotate(0deg)";
+    //    })
+      
+    //   })
+    //   if(window.innerWidth <= 600){
+    //       content.forEach(a=>{
+    //         a.style.display ="none";
+    //         document.getElementById(id).style.display="flex";
+    //       })
+    //   } 
+    // }
+
+      
+      window.onclick = function(event) {
+        if(!event.target.matches('.dropbtn')){
+        dropdown.forEach(a=>{
+          a.parentElement.classList.remove("visible");
+        });
+      }
+      };
+      // if(!event.target.matches('.dropbtn')){
+        
+      //   content.forEach(a=>{
+      //     a.style.visibility ="hidden";
+      //   })
+      //   c.forEach(b=>{
+      //      b.style.transform ="rotate(180deg)";
+        
+      //  })
+      //  if(window.innerWidth <= 600){
+      //     content.forEach(a=>{
+      //       a.style.display = "none";
+      //     })
+      // }
+      // }
+     
+   
+
+  
+    
+</script>
+</html>
